@@ -2,7 +2,7 @@
 
 set -e
 
-echo "Посмотрим че подойдет..."
+echo "Посмотрим что подойдет..."
 if command -v apt > /dev/null; then
     PKG_MANAGER="apt"
     DHCP_PACKAGE="isc-dhcp-server"
@@ -46,7 +46,7 @@ fi
 echo "Попался такой: $PKG_MANAGER"
 
 
-echo "Обновим пакетики..."
+echo "Обновим пакеты..."
 if [[ "$PKG_MANAGER" == "apt" || "$PKG_MANAGER" == "apt-get" ]]; then
     sudo $PKG_MANAGER update && sudo $PKG_MANAGER upgrade -y && sudo $PKG_MANAGER autoremove -y
 elif [[ "$PKG_MANAGER" == "dnf" || "$PKG_MANAGER" == "yum" ]]; then
